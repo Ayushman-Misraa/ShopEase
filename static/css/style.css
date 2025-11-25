@@ -1,0 +1,25 @@
+body {
+    background-color: #f8f9fa;
+}
+
+nav a:hover {
+    opacity: 0.8;
+}
+
+.card {
+    border-radius: 12px;
+}
+
+.nav-link {
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.nav-link:hover {
+    background-color: #495057;
+}
+
+.btn {
+    border-radius: 8px;
+}

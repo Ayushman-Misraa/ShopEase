@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="d-flex justify-content-center align-items-center" style="height:90vh;">
+    <div class="card shadow-lg p-4" style="width: 380px;">
+        <h3 class="text-center mb-3">Login</h3>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="alert alert-danger">{{ messages[0] }}</div>
+        {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+            <div class="mb-3">
+                <label>Username</label>
+                <input class="form-control" type="text" name="username" required>
+            </div>
+
+            <div class="mb-3">
+                <label>Password</label>
+                <input class="form-control" type="password" name="password" required>
+            </div>
+
+            <button class="btn btn-primary w-100">Login</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="mb-3">Dashboard</h2>
+
+<div class="row g-3">
+
+    <div class="col-md-4">
+        <div class="card shadow-sm p-3 text-center">
+            <h5>Total Products</h5>
+            <h2>{{ total_products if total_products else 0 }}</h2>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm p-3 text-center">
+            <h5>Total Sales</h5>
+            <h2>₹ {{ total_sales if total_sales else 0 }}</h2>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm p-3 text-center">
+            <h5>Today’s Bills</h5>
+            <h2>{{ today_bills if today_bills else 0 }}</h2>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

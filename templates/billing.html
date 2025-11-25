@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="mb-3">Billing</h2>
+
+<div class="row g-3">
+
+    <!-- Left: Add items to cart -->
+    <div class="col-md-7">
+        <div class="card shadow-sm p-3">
+
+            <form method="POST" action="/add-to-cart">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Select Product</label>
+                        <select class="form-select" name="product_id" required>
+                            <option value="">Choose...</option>
+                            {% for p in products %}
+                            <option value="{{ p.id }}">{{ p.name }} - ₹{{ p.price }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label>Qty</label>
+                        <input type="number" class="form-control" name="qty" min="1" required>
+                    </div>
+
+                    <div class="col-md-3 d-flex align-items-end">
+                        <button class="btn btn-primary w-100">Add</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- Right: Cart -->
+    <div class="col-md-5">
+        <div class="card shadow-sm p-3">
+
+            <h5>Cart Items</h5>
+            <hr>
+
+            {% if cart %}
+            <ul class="list-group">
+                {% for item in cart %}
+                <li class="list-group-item d-flex justify-content-between">
+                    {{ item.name }} (x{{ item.qty }})
+                    <strong>₹{{ item.total }}</strong>
+                </li>
+                {% endfor %}
+            </ul>
+
+            <hr>
+            <h4>Total: ₹{{ grand_total }}</h4>
+
+            <form method="POST" action="/checkout">
+                <button class="btn btn-success w-100 mt-3">Generate Bill</button>
+            </form>
+
+            {% else %}
+            <p class="text-muted">No items added yet.</p>
+            {% endif %}
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="mb-3">Edit Product</h2>
+
+<div class="card shadow-sm p-3">
+    <form method="POST">
+
+        <div class="mb-3">
+            <label>Name</label>
+            <input class="form-control" name="name" value="{{ product.name }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Price (₹)</label>
+            <input type="number" step="0.01" class="form-control" name="price" value="{{ product.price }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Stock</label>
+            <input type="number" class="form-control" name="stock" value="{{ product.stock }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Category</label>
+            <input class="form-control" name="category" value="{{ product.category }}" required>
+        </div>
+
+        <button class="btn btn-primary">Update</button>
+        <a href="/products" class="btn btn-secondary">Cancel</a>
+
+    </form>
+</div>
+
+{% endblock %}
